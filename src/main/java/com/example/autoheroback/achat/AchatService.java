@@ -3,6 +3,7 @@ package com.example.autoheroback.achat;
 
 import com.example.autoheroback.mail.EmailSender;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class AchatService {
+    @Autowired
     private final AchatRepository achatRepository;
     private final EmailSender emailSender;
 
