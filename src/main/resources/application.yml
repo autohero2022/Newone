@@ -6,7 +6,7 @@ server:
 spring:
   datasource:
     password: root
-    url: jdbc:mysql://localhost:3306/autohero_db
+    url: jdbc:mysql://31.207.33.183:3306/autohero_db
     username: root
   jpa:
     hibernate:
@@ -17,7 +17,7 @@ spring:
         format_sql: true
     show-sql: true
   mail:
-    host: localhost
+    host: 31.207.33.183
     port: 1025
     username: hello
     password: hello
