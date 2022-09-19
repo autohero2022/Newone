@@ -26,23 +26,23 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AutoherobackApplication implements CommandLineRunner {
 
-	@Autowired
+
 	VoitureRepository ob;
-	@Autowired
+
 	VoituredescriptionRepository voituredescriptionRepository;
-	@Autowired
+
 	AutresRepository autresRepository;
-	@Autowired
+
 	ConfortRepository confortRepository;
-	@Autowired
+
 	DiaporamaRepository diaporamaRepository;
-	@Autowired
+
 	EclairageRepository eclairageRepository;
-	@Autowired
+
 	MultimediaRepository multimediaRepository;
-	@Autowired
+
 	pointsfortsRepository pointsfortsRepository;
-	@Autowired
+
 	SecuRepository secuRepository;
 
 
