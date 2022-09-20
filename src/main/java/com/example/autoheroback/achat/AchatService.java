@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
 public class AchatService {
 
+    @Autowired
     private  AchatRepository achatRepository;
     private  EmailSender emailSender;
 
