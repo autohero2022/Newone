@@ -12,11 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 public class AchatService {
 
-    @Autowired
-    private   AchatRepository achatRepository;
+    private final AchatRepository achatRepository;
     private  EmailSender emailSender;
 
-    public AchatService() {
+    public AchatService(AchatRepository achatRepository) {
+        this.achatRepository = achatRepository;
     }
 
     public Achat create(Achat achat){
