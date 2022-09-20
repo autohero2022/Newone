@@ -11,9 +11,9 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class AchatService {
-    @Autowired
-    private final AchatRepository achatRepository;
-    private final EmailSender emailSender;
+
+    private  AchatRepository achatRepository;
+    private  EmailSender emailSender;
 
     public Achat create(Achat achat){
         return achatRepository.save(achat);
