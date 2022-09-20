@@ -10,10 +10,14 @@ import java.util.List;
 
 @Service
 public class AchatService {
-
-    @Autowired
+    
     private  AchatRepository achatRepository;
     private  EmailSender emailSender;
+
+    @Autowired
+    public AchatService(AchatRepository achatRepository) {
+        this.achatRepository = achatRepository;
+    }
 
     public Achat create(Achat achat){
         return achatRepository.save(achat);
