@@ -12,8 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 public class AchatService {
 
-    private final AchatRepository achatRepository;
+    private AchatRepository achatRepository;
     private  EmailSender emailSender;
+
+    public AchatService() {
+    }
 
     public AchatService(AchatRepository achatRepository) {
         this.achatRepository = achatRepository;
