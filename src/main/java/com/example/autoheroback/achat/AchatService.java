@@ -10,8 +10,8 @@ import java.util.List;
 
 @Service
 public class AchatService {
-    
-    private  AchatRepository achatRepository;
+
+    private final  AchatRepository achatRepository;
     private  EmailSender emailSender;
 
     @Autowired
