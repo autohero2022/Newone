@@ -19,10 +19,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
 public class VoituredescriptionService {
 
-    private final VoituredescriptionRepository voitureDescriptionRepository;
+    private  VoituredescriptionRepository voitureDescriptionRepository;
     public AutresRepository autresRepository;
     public ConfortRepository confortRepository;
     public DiaporamaRepository diaporamaRepository;
@@ -30,6 +29,13 @@ public class VoituredescriptionService {
     public MultimediaRepository multimediaRepository;
     public pointsfortsRepository pfRepository;
     public SecuRepository secuRepository;
+
+    public VoituredescriptionService() {
+    }
+
+    public VoituredescriptionService(VoituredescriptionRepository voitureDescriptionRepository) {
+        this.voitureDescriptionRepository = voitureDescriptionRepository;
+    }
 
     public Voituredescription getVoitureDescriptionByIdVoiture(final int id) {
         return voitureDescriptionRepository.findByIdvoiturestrange(id);
