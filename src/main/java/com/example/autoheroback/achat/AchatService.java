@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class AchatService {
 
-    private final  AchatRepository achatRepository;
+    @Autowired
+    private   AchatRepository achatRepository;
     private  EmailSender emailSender;
 
-    @Autowired
-    public AchatService(AchatRepository achatRepository) {
-        this.achatRepository = achatRepository;
+    public AchatService() {
     }
 
     public Achat create(Achat achat){
