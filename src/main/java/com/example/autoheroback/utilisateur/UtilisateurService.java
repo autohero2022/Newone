@@ -20,11 +20,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class UtilisateurService implements UserDetailsService {
 
-    @Autowired
     private  UtilisateurRepository utilisateurRepository;
-
-
-
 
     private  EmailValidator emailValidator;
     private  EmailSender emailSender;
