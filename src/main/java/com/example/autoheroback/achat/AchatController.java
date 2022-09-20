@@ -3,6 +3,7 @@ package com.example.autoheroback.achat;
 
 import com.example.autoheroback.utilisateur.UtilisateurRequest;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -10,11 +11,15 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path ="api/v1/achat")
-@AllArgsConstructor
+
 public class AchatController {
 
     private final AchatService achatService;
 
+    @Autowired
+    public AchatController(AchatService achatService) {
+        this.achatService = achatService;
+    }
 
     @PostMapping(path = "new",  consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> add (@RequestBody Achat achat){
