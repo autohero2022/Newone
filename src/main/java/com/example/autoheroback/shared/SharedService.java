@@ -18,6 +18,8 @@ public class SharedService {
     private final ConfirmationTokenService confirmationTokenService;
 
 
+
+
     @Transactional
     public String confirmToken(String token) {
         ConfirmationToken confirmationToken = confirmationTokenService

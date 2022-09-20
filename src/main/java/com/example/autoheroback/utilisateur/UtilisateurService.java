@@ -21,24 +21,36 @@ import java.util.UUID;
 public class UtilisateurService implements UserDetailsService {
 
     @Autowired
-    private final UtilisateurRepository UtilisateurRepository;
-    private final EmailValidator emailValidator;
-    private final EmailSender emailSender;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final static String USER_NOT_FOUND = "user with email %s not found";
-    private final ConfirmationTokenService confirmationTokenService;
+    private  UtilisateurRepository utilisateurRepository;
+
+
+
+
+    private  EmailValidator emailValidator;
+    private  EmailSender emailSender;
+    private  BCryptPasswordEncoder bCryptPasswordEncoder;
+    private  static String USER_NOT_FOUND = "user with email %s not found";
+    private ConfirmationTokenService confirmationTokenService;
+
+    public UtilisateurService(UtilisateurRepository utilisateurRepository) {
+        this.utilisateurRepository = utilisateurRepository;
+    };
+
+    public UtilisateurService() {
+
+    };
 
 
     public Utilisateur save(Utilisateur utilisateur){
-        return UtilisateurRepository.save(utilisateur);
+        return utilisateurRepository.save(utilisateur);
     }
 
 
     public Optional<Utilisateur> getUtilisateur(String email){
-        return UtilisateurRepository.findByEmail(email);
+        return utilisateurRepository.findByEmail(email);
     }
     public String signUpUser(Utilisateur appUser){
-        boolean userExists = UtilisateurRepository
+        boolean userExists = utilisateurRepository
                 .findByEmail(appUser.getEmail())
                 .isPresent();
         if (userExists) {
@@ -52,7 +64,7 @@ public class UtilisateurService implements UserDetailsService {
 
         appUser.setPassword(encodedPassword);
 
-        UtilisateurRepository.save(appUser);
+        utilisateurRepository.save(appUser);
 
         String token = UUID.randomUUID().toString();
 
@@ -75,19 +87,19 @@ public class UtilisateurService implements UserDetailsService {
     }
 
     public int activeUtilisateur(String email) {
-        return UtilisateurRepository.activeUtilisateur(email);
+        return utilisateurRepository.activeUtilisateur(email);
     }
 
     public int connectUtilisateur(UtilisateurRequest request) {
-        return UtilisateurRepository.connectUtilisateur(request.getEmail());
+        return utilisateurRepository.connectUtilisateur(request.getEmail());
     }
 
     public int disconnectUtilisateur(UtilisateurRequest request) {
-        return UtilisateurRepository.disconnectUtilisateur(request.getEmail());
+        return utilisateurRepository.disconnectUtilisateur(request.getEmail());
     }
 
     public Optional<Utilisateur> login(String email){
-        return UtilisateurRepository.findByEmail(email);
+        return utilisateurRepository.findByEmail(email);
     }
 
     @Override
